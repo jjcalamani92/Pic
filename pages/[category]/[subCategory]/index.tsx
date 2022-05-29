@@ -45,7 +45,7 @@ export async function getStaticPaths() {
 	const { data } = await client.query({
 		query: wearsQuery
 	});
-	const paths = data.wears.map((wear) => ({
+	const paths = data.wears.map((wear: IProduct) => ({
 		params: { category: wear.category, subCategory: wear.subCategory }
 	}));
 	return {
