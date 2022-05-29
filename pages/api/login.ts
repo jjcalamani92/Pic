@@ -28,7 +28,7 @@ export default function handler(
 const loginUser = async (req: NextApiRequest, res: NextApiResponse<Data>) => {
 	const { email = "", password = "" } = req.body;
 	const { db } = await connectToDatabase();
-	const user = await db.collection("users").find({ email });
+	const user = await db.collection("users").findOne({ email });
 	if (!user) {
 		return res.status(400).json({ message: "email o password not valid - e" });
 	}
