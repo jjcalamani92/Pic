@@ -41,7 +41,7 @@ const SubCategoryPage: NextPage<Props> = ({ wears }) => {
 	);
 };
 
-export async function getStaticPaths(ctx) {
+export async function getStaticPaths() {
 	const { data } = await client.query({
 		query: wearsQuery
 	});
