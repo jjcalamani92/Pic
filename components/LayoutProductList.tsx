@@ -1,59 +1,9 @@
 import { FC } from "react";
 import { IProduct } from "../src/interfaces";
-
-/*
-  This example requires Tailwind CSS v2.0+ 
-  
-  This example requires some changes to your config:
-  
-  ```
-  // tailwind.config.js
-  module.exports = {
-    // ...
-    plugins: [
-      // ...
-      require('@tailwindcss/aspect-ratio'),
-    ],
-  }
-  ```
-*/
-// const products = [
-// 	{
-// 		id: 1,
-// 		name: "Basic Tee",
-// 		href: "#",
-// 		imageSrc:
-// 			"https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-01.jpg",
-// 		imageAlt: "Front of men's Basic Tee in black.",
-// 		price: "$35",
-// 		color: "Black"
-// 	},
-// 	{
-// 		id: 2,
-// 		name: "Basic Tee",
-// 		href: "#",
-// 		imageSrc:
-// 			"https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-01.jpg",
-// 		imageAlt: "Front of men's Basic Tee in black.",
-// 		price: "$35",
-// 		color: "Black"
-// 	},
-// 	{
-// 		id: 3,
-// 		name: "Basic Tee",
-// 		href: "#",
-// 		imageSrc:
-// 			"https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-01.jpg",
-// 		imageAlt: "Front of men's Basic Tee in black.",
-// 		price: "$35",
-// 		color: "Black"
-// 	}
-// 	// More products...
-// ];
+import Link from "next/link";
 
 interface Props {
 	products: IProduct[];
-	// title: string;
 }
 
 export const LayoutProductlist: FC<Props> = ({ products }) => {
@@ -77,10 +27,16 @@ export const LayoutProductlist: FC<Props> = ({ products }) => {
 							<div className="mt-4 flex justify-between">
 								<div>
 									<h3 className="text-sm text-gray-700">
-										<a href={`/detalles/${product.slug}`}>
-											<span aria-hidden="true" className="absolute inset-0" />
-											{product.title}
-										</a>
+										<Link
+											href={`/detalles/${product.slug}`}
+											passHref
+											prefetch={false}
+										>
+											<a>
+												<span aria-hidden="true" className="absolute inset-0" />
+												{product.title}
+											</a>
+										</Link>
 									</h3>
 									<p className="mt-1 text-sm text-gray-500">{product.color}</p>
 								</div>

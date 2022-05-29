@@ -2,7 +2,6 @@ import { GetStaticPaths, GetStaticProps, NextPage } from "next";
 import { ProductOverviews } from "../../components/ProductOverviews";
 import { IProduct } from "../../src/interfaces";
 import { Layout } from "../../components";
-
 import { connectToDatabase } from "../../src/mongodb";
 
 interface Props {

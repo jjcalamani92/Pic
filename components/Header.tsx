@@ -22,6 +22,7 @@ import {
 	ShoppingBagIcon,
 	XIcon
 } from "@heroicons/react/outline";
+import Link from "next/link";
 
 const navigation = {
 	categories: [
@@ -172,16 +173,16 @@ export const Header = () => {
 																	className="object-center object-cover"
 																/>
 															</div>
-															<a
-																href={item.href}
-																className="mt-6 block font-medium text-gray-900"
-															>
-																<span
-																	className="absolute z-10 inset-0"
-																	aria-hidden="true"
-																/>
-																{item.name}
-															</a>
+															<Link href={item.href} passHref prefetch={false}>
+																<a className="mt-6 block font-medium text-gray-900">
+																	<span
+																		className="absolute z-10 inset-0"
+																		aria-hidden="true"
+																	/>
+																	{item.name}
+																</a>
+															</Link>
+
 															<p aria-hidden="true" className="mt-1">
 																Shop now
 															</p>
@@ -203,12 +204,15 @@ export const Header = () => {
 														>
 															{section.items.map((item) => (
 																<li key={item.name} className="flow-root">
-																	<a
+																	<Link
 																		href={item.href}
-																		className="-m-2 p-2 block text-gray-500"
+																		passHref
+																		prefetch={false}
 																	>
-																		{item.name}
-																	</a>
+																		<a className="-m-2 p-2 block text-gray-500">
+																			{item.name}
+																		</a>
+																	</Link>
 																</li>
 															))}
 														</ul>
@@ -222,12 +226,11 @@ export const Header = () => {
 								<div className="border-t border-gray-200 py-6 px-4 space-y-6">
 									{navigation.pages.map((page) => (
 										<div key={page.name} className="flow-root">
-											<a
-												href={`/${page.href}`}
-												className="-m-2 p-2 block font-medium text-gray-900"
-											>
-												{page.name}
-											</a>
+											<Link href={`/${page.href}`} passHref prefetch={false}>
+												<a className="-m-2 p-2 block font-medium text-gray-900">
+													{page.name}
+												</a>
+											</Link>
 										</div>
 									))}
 								</div>
@@ -247,17 +250,19 @@ export const Header = () => {
                 */}
 
 								<div className="border-t border-gray-200 py-6 px-4">
-									<a href="#" className="-m-2 p-2 flex items-center">
-										<img
-											src="https://tailwindui.com/img/flags/flag-canada.svg"
-											alt=""
-											className="w-5 h-auto block flex-shrink-0"
-										/>
-										<span className="ml-3 block text-base font-medium text-gray-900">
-											CAD
-										</span>
-										<span className="sr-only">, change currency</span>
-									</a>
+									<Link href="#" passHref prefetch={false}>
+										<a className="-m-2 p-2 flex items-center">
+											<img
+												src="https://tailwindui.com/img/flags/flag-canada.svg"
+												alt=""
+												className="w-5 h-auto block flex-shrink-0"
+											/>
+											<span className="ml-3 block text-base font-medium text-gray-900">
+												CAD
+											</span>
+											<span className="sr-only">, change currency</span>
+										</a>
+									</Link>
 								</div>
 							</Dialog.Panel>
 						</Transition.Child>
@@ -349,16 +354,16 @@ export const Header = () => {
 																							className="object-center object-cover"
 																						/>
 																					</div>
-																					<a
-																						href={item.href}
-																						className="mt-6 block font-medium text-gray-900"
-																					>
-																						<span
-																							className="absolute z-10 inset-0"
-																							aria-hidden="true"
-																						/>
-																						{item.name}
-																					</a>
+																					<Link href={item.href}>
+																						<a className="mt-6 block font-medium text-gray-900">
+																							<span
+																								className="absolute z-10 inset-0"
+																								aria-hidden="true"
+																							/>
+																							{item.name}
+																						</a>
+																					</Link>
+
 																					<p
 																						aria-hidden="true"
 																						className="mt-1"
@@ -387,12 +392,11 @@ export const Header = () => {
 																								key={item.name}
 																								className="flex"
 																							>
-																								<a
-																									href={item.href}
-																									className="hover:text-gray-800"
-																								>
-																									{item.name}
-																								</a>
+																								<Link href={`/${item.href}`}>
+																									<a className="hover:text-gray-800">
+																										{item.name}
+																									</a>
+																								</Link>
 																							</li>
 																						))}
 																					</ul>
@@ -410,13 +414,11 @@ export const Header = () => {
 									))}
 
 									{navigation.pages.map((page) => (
-										<a
-											key={page.name}
-											href={`/${page.href}`}
-											className="flex items-center text-sm font-medium text-gray-700 hover:text-gray-800"
-										>
-											{page.name}
-										</a>
+										<Link href={`/${page.href}`}>
+											<a className="flex items-center text-sm font-medium text-gray-700 hover:text-gray-800">
+												{page.name}
+											</a>
+										</Link>
 									))}
 								</div>
 							</Popover.Group>
