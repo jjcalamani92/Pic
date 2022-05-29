@@ -1,0 +1,260 @@
+{
+	"title": "Piccoletti",
+	"logo": "https://res.cloudinary.com/dvcyhn0lj/image/upload/v1647095547/piccoletti-logo_j6hxbw.jpg",
+	"pages": [
+		{ "name": "Categorias", "href": "#" },
+		{ "name": "Stores", "href": "#" }
+	],
+	"header": [
+		{
+			"category": "Women",
+			"featured": [
+				{
+					"name": "New Arrivals",
+					"href": "#",
+					"imageSrc": "https://res.cloudinary.com/dvcyhn0lj/image/upload/v1649546388/piccoletti/products/products/8765090-00-A_1_io8srx.jpg",
+					"imageAlt": "Models sitting back to back, wearing Basic Tee in black and bone."
+				},
+				{
+					"name": "Basic Tees",
+					"href": "#",
+					"imageSrc": "https://res.cloudinary.com/dvcyhn0lj/image/upload/v1649546394/piccoletti/products/products/8765095-00-A_1_zkg3ce.webp",
+					"imageAlt": "Close up of Basic Tee fall bundle with off-white, ochre, olive, and black tees."
+				}
+			],
+			"sections": [
+				{
+					"categories": "Clothing",
+					"subcategories": [
+						{
+							"label": "Tops",
+							"href": "#"
+						},
+						{
+							"label": "Dresses",
+							"href": "#"
+						},
+						{
+							"label": "Pants",
+							"href": "#"
+						},
+						{
+							"label": "Denim",
+							"href": "#"
+						},
+						{
+							"label": "Sweaters",
+							"href": "#"
+						},
+						{
+							"label": "T-Shirts",
+							"href": "#"
+						},
+						{
+							"label": "Jackets",
+							"href": "#"
+						},
+						{
+							"label": "Activewear",
+							"href": "#"
+						},
+						{
+							"label": "Browse All",
+							"href": "#"
+						}
+					]
+				},
+				{
+					"categories": "Clothing",
+					"subcategories": [
+						{
+							"label": "Tops",
+							"href": "#"
+						},
+						{
+							"label": "Dresses",
+							"href": "#"
+						},
+						{
+							"label": "Pants",
+							"href": "#"
+						},
+						{
+							"label": "Denim",
+							"href": "#"
+						},
+						{
+							"label": "Sweaters",
+							"href": "#"
+						},
+						{
+							"label": "T-Shirts",
+							"href": "#"
+						},
+						{
+							"label": "Jackets",
+							"href": "#"
+						},
+						{
+							"label": "Activewear",
+							"href": "#"
+						},
+						{
+							"label": "Browse All",
+							"href": "#"
+						}
+					]
+				},
+				{
+					"categories": "Clothing",
+					"subcategories": [
+						{
+							"label": "Tops",
+							"href": "#"
+						},
+						{
+							"label": "Dresses",
+							"href": "#"
+						},
+						{
+							"label": "Pants",
+							"href": "#"
+						},
+						{
+							"label": "Denim",
+							"href": "#"
+						},
+						{
+							"label": "Sweaters",
+							"href": "#"
+						},
+						{
+							"label": "T-Shirts",
+							"href": "#"
+						},
+						{
+							"label": "Jackets",
+							"href": "#"
+						},
+						{
+							"label": "Activewear",
+							"href": "#"
+						},
+						{
+							"label": "Browse All",
+							"href": "#"
+						}
+					]
+				}
+			]
+		},
+		{
+			"category": "Men",
+			"featured": [
+				{
+					"name": "New Arrivals",
+					"href": "#",
+					"imageSrc": "https://tailwindui.com/img/ecommerce-images/product-page-04-detail-product-shot-01.jpg",
+					"imageAlt": "Drawstring top with elastic loop closure and textured interior padding."
+				},
+				{
+					"name": "Artwork Tees",
+					"href": "#",
+					"imageSrc": "https://tailwindui.com/img/ecommerce-images/category-page-02-image-card-06.jpg",
+					"imageAlt": "Three shirts in gray, white, and blue arranged on table with same line drawing of hands and shapes overlapping on front of shirt."
+				}
+			],
+			"sections": [
+				{
+					"categories": "Clothing",
+					"subcategories": [
+						{
+							"label": "Tops",
+							"href": "#"
+						},
+						{
+							"label": "Pants",
+							"href": "#"
+						},
+						{
+							"label": "Sweaters",
+							"href": "#"
+						},
+						{
+							"label": "T-Shirts",
+							"href": "#"
+						},
+						{
+							"label": "Chamarras",
+							"href": "/men/chamarras"
+						},
+						{
+							"label": "Activewear",
+							"href": "#"
+						},
+						{
+							"label": "Browse All",
+							"href": "#"
+						}
+					]
+				}
+			]
+		}
+	],
+	"category": [
+		{
+			"title": "Desk and Office",
+			"description": "Work from home accessories",
+			"image": [
+				"https://cdn.pixabay.com/photo/2016/11/29/12/51/adult-1869621_960_720.jpg"
+			],
+			"imageAlt": "Desk with leather desk pad, walnut desk organizer, wireless keyboard and mouse, and porcelain mug.",
+			"href": "#"
+		},
+		{
+			"title": "Self-Improvement",
+			"description": "Journals and note-taking",
+			"image": [
+				"https://tailwindui.com/img/ecommerce-images/home-page-02-edition-02.jpg"
+			],
+			"imageAlt": "Wood table with porcelain mug, leather journal, brass pen, leather key ring, and a houseplant.",
+			"href": "#"
+		},
+		{
+			"title": "Travel",
+			"description": "Daily commute essentials",
+			"image": [
+				"https://tailwindui.com/img/ecommerce-images/home-page-02-edition-03.jpg"
+			],
+			"imageAlt": "Collection of four insulated travel bottles on wooden shelf.",
+			"href": "#"
+		},
+		{
+			"title": "Travel",
+			"description": "Daily commute essentials",
+			"image": [
+				"https://tailwindui.com/img/ecommerce-images/home-page-02-edition-03.jpg"
+			],
+			"imageAlt": "Collection of four insulated travel bottles on wooden shelf.",
+			"href": "#"
+		},
+		{
+			"title": "Desk and Office",
+			"description": "Work from home accessories",
+			"image": [
+				"https://tailwindui.com/img/ecommerce-images/home-page-02-edition-01.jpg"
+			],
+			"imageAlt": "Desk with leather desk pad, walnut desk organizer, wireless keyboard and mouse, and porcelain mug.",
+			"href": "#"
+		},
+		{
+			"title": "Self-Improvement",
+			"description": "Journals and note-taking",
+			"image": [
+				"https://tailwindui.com/img/ecommerce-images/home-page-02-edition-02.jpg"
+			],
+			"imageAlt": "Wood table with porcelain mug, leather journal, brass pen, leather key ring, and a houseplant.",
+			"href": "#"
+		}
+	]
+}

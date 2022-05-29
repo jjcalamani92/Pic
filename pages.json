@@ -1,0 +1,76 @@
+{
+	"domain": "collita.com",
+	"logo": "collita.com",
+	"pagesFirst": [
+		{
+			"title": "home",
+			"href": "/home",
+			"description": "description",
+			"image": "image subcategory",
+			"imageAlt": "Desk with leather desk pad, walnut desk organizer, wireless keyboard and mouse, and porcelain mug."
+		},
+		{
+			"title": "men",
+			"href": "/men",
+			"description": "description",
+			"image": "image subcategory",
+			"imageAlt": "Desk with leather desk pad, walnut desk organizer, wireless keyboard and mouse, and porcelain mug."
+		},
+		{
+			"title": "women",
+			"href": "/women",
+			"description": "description",
+			"image": "image subcategory",
+			"imageAlt": "Desk with leather desk pad, walnut desk organizer, wireless keyboard and mouse, and porcelain mug."
+		},
+		{
+			"title": "kid",
+			"href": "/kid",
+			"description": "description",
+			"image": "image subcategory",
+			"imageAlt": "Desk with leather desk pad, walnut desk organizer, wireless keyboard and mouse, and porcelain mug."
+		},
+		{
+			"title": "contact",
+			"href": "/contact",
+			"description": "description",
+			"image": "image subcategory",
+			"imageAlt": "Desk with leather desk pad, walnut desk organizer, wireless keyboard and mouse, and porcelain mug."
+		}
+	],
+	"pageSecondary": [
+		{
+			"titlePrimary": "men",
+			"titleSecondary": "chamarras",
+			"description": "description",
+			"image": "image subcategory",
+			"imageAlt": "Desk with leather desk pad, walnut desk organizer, wireless keyboard and mouse, and porcelain mug.",
+			"params": {
+				"titlePrimary_href": "men",
+				"titleSecondary_href": "chamarras"
+			}
+		},
+		{
+			"titlePrimary": "men",
+			"titleSecondary": "sacos",
+			"description": "description",
+			"image": "image subcategory",
+			"imageAlt": "Desk with leather desk pad, walnut desk organizer, wireless keyboard and mouse, and porcelain mug.",
+			"params": {
+				"titlePrimary_href": "men",
+				"titleSecondary_href": "sacos"
+			}
+		},
+		{
+			"titlePrimary": "men",
+			"titleSecondary": "chamarras",
+			"description": "description",
+			"image": "image subcategory",
+			"imageAlt": "Desk with leather desk pad, walnut desk organizer, wireless keyboard and mouse, and porcelain mug.",
+			"params": {
+				"titlePrimary_href": "men",
+				"titleSecondary_href": "sacos"
+			}
+		}
+	]
+}
