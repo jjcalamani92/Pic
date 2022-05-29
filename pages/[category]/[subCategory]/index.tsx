@@ -7,7 +7,7 @@ import {
 } from "../../../components";
 import { useRouter } from "next/router";
 import { IProduct } from "../../../src/interfaces";
-import { gql, useQuery } from "@apollo/client";
+import { useQuery } from "@apollo/client";
 import {
 	GET_WEARS_BY_CATEGORY_AND_SUBCATEGORY,
 	wearsQuery
@@ -29,7 +29,6 @@ const SubCategoryPage: NextPage<Props> = ({ wears }) => {
 	);
 	if (loading) return <Spinner01 />;
 
-	console.log(data);
 	return (
 		<Layout
 			title={"Choco - Stores"}
@@ -41,7 +40,7 @@ const SubCategoryPage: NextPage<Props> = ({ wears }) => {
 	);
 };
 
-export async function getStaticPaths() {
+export const getStaticPaths: GetStaticPaths = async (ctx) => {
 	const { data } = await client.query({
 		query: wearsQuery
 	});
@@ -52,21 +51,9 @@ export async function getStaticPaths() {
 		paths,
 		fallback: false
 	};
-}
+};
 
-// export const getStaticPaths: GetStaticPaths = () => {
-// 	const paths = [
-// 		{ params: { category: "hombre", subCategory: "chamarras" } },
-// 		{ params: { category: "hombre", subCategory: "poleras" } },
-// 		{ params: { category: "mujer", subCategory: "leggins" } }
-// 	];
-// 	return {
-// 		paths,
-// 		fallback: false // false or 'blocking',
-// 	};
-// };
-
-export async function getStaticProps({ params }) {
+export const getStaticProps: GetStaticProps = async ({ params }) => {
 	const { subCategory = "" } = params as { subCategory: string };
 	return {
 		props: {
@@ -74,17 +61,6 @@ export async function getStaticProps({ params }) {
 		},
 		revalidate: 60 * 60 * 24
 	};
-}
-
-// export async function getStaticProps() {
-// 	const { data } = await client.query({
-// 		query: wearsQuery
-// 	});
-// 	return {
-// 		props: {
-// 			wears: data.wears
-// 		}
-// 	};
-// }
+};
 
 export default SubCategoryPage;

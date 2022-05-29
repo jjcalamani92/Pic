@@ -12,19 +12,11 @@ interface Props {
 const SlugPage: NextPage<Props> = ({ product }) => {
 	return (
 		<Layout
-			// title={`${product.title}`}
-			// pageDescription={`${product.description}`}
-			// imageFullUrl={`${product.image[1]}`}
 			title={`${product.title}`}
 			pageDescription={`${product.description}`}
 			imageFullUrl={`${product.image[1]}`}
 		>
-			<ProductOverviews
-				product={product}
-				// products={products}
-				// isLoading={isLoading}
-				// subCategory="chamarras"
-			/>
+			<ProductOverviews product={product} />
 		</Layout>
 	);
 };

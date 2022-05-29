@@ -8,6 +8,7 @@ import {
 import { GET_WEARS, wearsQuery } from "../../src/gql/graphql";
 import { client } from "../_app";
 import { useQuery } from "@apollo/client";
+import { IProduct } from "../../src/interfaces";
 
 interface Props {
 	category: string;
@@ -29,20 +30,20 @@ const CategoryPage: NextPage<Props> = ({ category }) => {
 	);
 };
 
-export async function getStaticPaths(ctx) {
+export const getStaticPaths: GetStaticPaths = async (ctx) => {
 	const { data } = await client.query({
 		query: wearsQuery
 	});
-	const paths = data.wears.map((wear) => ({
+	const paths = data.wears.map((wear: IProduct) => ({
 		params: { category: wear.category }
 	}));
 	return {
 		paths,
 		fallback: false
 	};
-}
+};
 
-export async function getStaticProps({ params }) {
+export const getStaticProps: GetStaticProps = async ({ params }) => {
 	const { category = "" } = params as { category: string };
 	return {
 		props: {
@@ -50,5 +51,5 @@ export async function getStaticProps({ params }) {
 		},
 		revalidate: 60 * 60 * 24
 	};
-}
+};
 export default CategoryPage;
