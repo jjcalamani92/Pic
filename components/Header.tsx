@@ -161,11 +161,8 @@ export const Header = () => {
 												className="pt-10 pb-8 px-4 space-y-10"
 											>
 												<div className="grid grid-cols-2 gap-x-4">
-													{category.featured.map((item) => (
-														<div
-															key={item.name}
-															className="group relative text-sm"
-														>
+													{category.featured.map((item, i) => (
+														<div key={i} className="group relative text-sm">
 															<div className="aspect-w-1 aspect-h-1 rounded-lg bg-gray-100 overflow-hidden group-hover:opacity-75">
 																<img
 																	src={item.imageSrc}
@@ -176,7 +173,7 @@ export const Header = () => {
 															<Link href={item.href} passHref prefetch={false}>
 																<a className="mt-6 block font-medium text-gray-900">
 																	<span
-																		className="absolute z-10 inset-0"
+																		className="absolute z-10 inset-0 capitalize"
 																		aria-hidden="true"
 																	/>
 																	{item.name}
@@ -209,7 +206,7 @@ export const Header = () => {
 																		passHref
 																		prefetch={false}
 																	>
-																		<a className="-m-2 p-2 block text-gray-500">
+																		<a className="-m-2 p-2 block text-gray-500 capitalize">
 																			{item.name}
 																		</a>
 																	</Link>

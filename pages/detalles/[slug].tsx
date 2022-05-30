@@ -1,5 +1,10 @@
 import { GetStaticPaths, GetStaticProps, NextPage } from "next";
-import { ProductOverviews } from "../../components/ProductOverviews";
+import {
+	ProductOverviews,
+	ProductOverviews01,
+	ProductOverviews02,
+	ProductOverviews03
+} from "../../components/ProductOverviews";
 import { IProduct } from "../../src/interfaces";
 import { Layout } from "../../components";
 import { connectToDatabase } from "../../src/mongodb";
@@ -15,6 +20,9 @@ const SlugPage: NextPage<Props> = ({ product }) => {
 			pageDescription={`${product.description}`}
 			imageFullUrl={`${product.image[1]}`}
 		>
+			{/* <ProductOverviews03 product={product} /> */}
+			{/* <ProductOverviews02 product={product} /> */}
+			<ProductOverviews01 product={product} />
 			<ProductOverviews product={product} />
 		</Layout>
 	);
@@ -27,6 +35,10 @@ interface ProductSlug {
 const getAllProductSlugs = async (): Promise<ProductSlug[]> => {
 	const { db } = await connectToDatabase();
 	const slugs = await db.collection("wears").find().toArray();
+	// const user = await db
+	// 	.collection("users")
+	// 	.findOne({ email: "jesuscalamani92@gmail.com" });
+	// console.log(user);
 	return slugs;
 };
 
