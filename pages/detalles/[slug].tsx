@@ -6,83 +6,58 @@ import {
 	ProductOverviews03
 } from "../../components/ProductOverviews";
 import { IProduct } from "../../src/interfaces";
-import { Layout } from "../../components";
-import { connectToDatabase } from "../../src/mongodb";
+import { Layout, Spinner01 } from "../../components";
+import { useQuery } from "@apollo/client";
+import { PRODUCTS, PRODUCT_BY_SLUG } from "../../src/gql/graphql";
+import { client } from "../_app";
 
 interface Props {
-	product: IProduct;
+	slug: string;
 }
 
-const SlugPage: NextPage<Props> = ({ product }) => {
+const SlugPage: NextPage<Props> = ({ slug }) => {
+	const { loading, error, data } = useQuery(PRODUCT_BY_SLUG, {
+		variables: { slug: `${slug}` }
+	});
+	if (loading) return <Spinner01 />;
+	// console.log(data.wearBySlug);
+	const product = data.wearBySlug;
 	return (
 		<Layout
 			title={`${product.title}`}
 			pageDescription={`${product.description}`}
 			imageFullUrl={`${product.image[1]}`}
 		>
-			{/* <ProductOverviews03 product={product} /> */}
+			<ProductOverviews03 product={product} />
 			{/* <ProductOverviews02 product={product} /> */}
-			<ProductOverviews01 product={product} />
+			{/* <ProductOverviews01 product={product} />*/}
 			<ProductOverviews product={product} />
 		</Layout>
 	);
 };
 
-interface ProductSlug {
-	slug: string;
-}
-
-const getAllProductSlugs = async (): Promise<ProductSlug[]> => {
-	const { db } = await connectToDatabase();
-	const slugs = await db.collection("wears").find().toArray();
-	// const user = await db
-	// 	.collection("users")
-	// 	.findOne({ email: "jesuscalamani92@gmail.com" });
-	// console.log(user);
-	return slugs;
-};
-
-const getProductBySlug = async (slug: string): Promise<IProduct | null> => {
-	const { db } = await connectToDatabase();
-	const product = await db.collection("wears").findOne({ slug });
-	if (!product) {
-		return null;
-	}
-	return JSON.parse(JSON.stringify(product));
-};
-
 export const getStaticPaths: GetStaticPaths = async (ctx) => {
-	const productSlugs = await getAllProductSlugs();
+	const { data } = await client.query({
+		query: PRODUCTS
+	});
 
+	const paths = data.wears.map((wear: IProduct) => ({
+		params: { slug: wear.slug }
+	}));
+	// console.log(paths)
 	return {
-		paths: productSlugs.map(({ slug }) => ({
-			params: {
-				slug
-			}
-		})),
-		fallback: "blocking"
+		paths,
+		fallback: false
 	};
 };
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
 	const { slug = "" } = params as { slug: string };
-	const product = await getProductBySlug(slug);
-
-	if (!product) {
-		return {
-			redirect: {
-				destination: "/",
-				permanent: false
-			}
-		};
-	}
-
 	return {
 		props: {
-			product
+			slug
 		},
 		revalidate: 60 * 60 * 24
 	};
 };
-
 export default SlugPage;

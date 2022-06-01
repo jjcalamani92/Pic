@@ -30,7 +30,7 @@ export const SwiperComponent: FC<Props> = ({ image }) => {
 				pagination={{
 					clickable: true
 				}}
-				navigation={true}
+				navigation={false}
 				autoplay={{
 					delay: 5000,
 					disableOnInteraction: false
@@ -74,7 +74,7 @@ export const SwiperDetail: FC<Props2> = ({ image }) => {
 				grabCursor={image.length === 1 ? false : true}
 				thumbs={{ swiper: activeThumb }}
 				modules={[Autoplay, Navigation, Pagination, Thumbs]}
-				className="w-auto"
+				className="w-full"
 			>
 				{image.map((images, i) => (
 					<SwiperSlide className="w-auto" key={i}>

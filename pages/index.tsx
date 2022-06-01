@@ -5,6 +5,7 @@ import {
 	Practice,
 	ProductOverviews01
 } from "../components";
+import { useSession, signIn, signOut } from "next-auth/react";
 
 const Index: NextPage = () => {
 	return (

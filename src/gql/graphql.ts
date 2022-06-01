@@ -8,6 +8,36 @@ export const wearsPathsQuery = gql`
 	}
 `;
 
+export const PRODUCTS = gql`
+	query Wears {
+		wears {
+			title
+			image
+			price
+			description
+			category
+			subCategory
+			slug
+		}
+	}
+`;
+
+export const PRODUCT_BY_SLUG = gql`
+	query WearBySlug($slug: String!) {
+		wearBySlug(slug: $slug) {
+			_id
+			title
+			image
+			price
+			description
+			category
+			subCategory
+			slug
+			sizes
+		}
+	}
+`;
+
 export const GET_SLUG = gql`
 	query WearsBySlug($slug: String!) {
 		product(slug: $slug) {

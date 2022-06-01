@@ -1,5 +1,6 @@
 import "../src/styles/globals.css";
 import type { AppProps } from "next/app";
+import { SessionProvider } from "next-auth/react";
 import {
 	ApolloClient,
 	ApolloProvider,
@@ -8,7 +9,6 @@ import {
 } from "@apollo/client";
 
 const httpLink = createHttpLink({
-	// uri: "http://localhost:3000/graphql"
 	uri: "https://nestjsandgraphql.herokuapp.com/graphql"
 });
 export const client = new ApolloClient({
@@ -18,9 +18,11 @@ export const client = new ApolloClient({
 
 function MyApp({ Component, pageProps }: AppProps) {
 	return (
-		<ApolloProvider client={client}>
-			<Component {...pageProps} />
-		</ApolloProvider>
+		<SessionProvider>
+			<ApolloProvider client={client}>
+				<Component {...pageProps} />
+			</ApolloProvider>
+		</SessionProvider>
 	);
 }
 

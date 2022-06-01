@@ -1,19 +1,45 @@
 import { useState } from "react";
+import { useForm } from "react-hook-form";
+import { storeApi } from "../src";
+
+type FormData = {
+	email: string;
+	password: string;
+};
 
 export const Login = () => {
-	const [sidebar, setsidebar] = useState();
+	const {
+		register,
+		handleSubmit,
+		watch,
+		formState: { errors }
+	} = useForm<FormData>();
+	// const [sidebar, setsidebar] = useState();
+	const onLoginSubmit = async ({ email, password }: FormData) => {
+		try {
+			const { data } = await storeApi.post("auth/login", { email, password });
+			// const { token, user } = data;
+			console.log(data);
+		} catch (error) {
+			console.log("Error en las credenciales");
+		}
+	};
+	// console.log({ email, password });
 
 	return (
-		<div className="h-screen bg-gray-100 from-green-400 to-red-900 w-full py-16 px-4">
-			<div className="flex flex-col items-center justify-center">
-				<div className="bg-white shadow rounded lg:w-1/3  md:w-1/2 w-full p-10 mt-16">
+		<form
+			onSubmit={handleSubmit(onLoginSubmit)}
+			className="h-screen flex bg-gray-100 from-green-400 to-red-900 w-full py-16 px-4"
+		>
+			<div className="flex flex-col items-center justify-center w-full">
+				<div className="bg-white shadow rounded lg:w-1/3  md:w-1/2 w-auto  p-10">
 					<p
 						tabIndex={0}
 						role="heading"
 						aria-label="Login to your account"
 						className="text-2xl font-extrabold leading-6 text-center text-gray-800"
 					>
-						Login
+						Iniciar Sesión
 					</p>
 					{/* <p className="text-sm mt-4 font-medium leading-none text-gray-500">
 						¿No tienes cuenta?{" "}
@@ -27,7 +53,7 @@ export const Login = () => {
 							Registrate aquí
 						</span>
 					</p> */}
-					<button
+					{/* <button
 						aria-label="Continue with google"
 						role="button"
 						className="focus:outline-none focus:ring-2 focus:ring-offset-1 focus:ring-gray-700 py-3.5 px-4 border rounded-lg border-gray-700 flex items-center w-full mt-10"
@@ -60,6 +86,7 @@ export const Login = () => {
 							Inicia sesión con Google
 						</p>
 					</button>
+					 */}
 					{/* <button
 						aria-label="Continue with github"
 						role="button"
@@ -118,6 +145,9 @@ export const Login = () => {
 							aria-label="enter email adress"
 							type="email"
 							className="bg-gray-200 border rounded focus:outline-none text-xs font-medium leading-none text-gray-800 py-3 w-full pl-3 mt-2"
+							{...register("email", {
+								required: "Este campo es requerido"
+							})}
 						/>
 					</div>
 					<div className="mt-6  w-full">
@@ -129,6 +159,10 @@ export const Login = () => {
 								aria-label="enter Password"
 								type="password"
 								className="bg-gray-200 border rounded focus:outline-none text-xs font-medium leading-none text-gray-800 py-3 w-full pl-3 mt-2"
+								{...register("password", {
+									required: "Este campor es requerido",
+									minLength: { value: 6, message: "Mínimo 6 caracteres" }
+								})}
 							/>
 							<div className="absolute right-0 mt-2 mr-3 cursor-pointer">
 								<svg
@@ -148,7 +182,7 @@ export const Login = () => {
 					</div>
 					<div className="mt-8">
 						<button
-							role="button"
+							type="submit"
 							aria-label="create my account"
 							className="focus:ring-2 focus:ring-offset-2 focus:ring-primaryColor text-sm font-semibold leading-none text-white focus:outline-none bg-primaryColor border rounded hover:bg-darkPrimaryColor py-4 w-full"
 						>
@@ -157,9 +191,10 @@ export const Login = () => {
 					</div>
 				</div>
 			</div>
-		</div>
+		</form>
 	);
 };
+
 export const Register = () => {
 	const [sidebar, setsidebar] = useState();
 

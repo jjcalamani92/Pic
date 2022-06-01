@@ -3,8 +3,8 @@ import { Login, Register } from "../../components";
 const AuthPage = () => {
 	return (
 		<>
-			{/* <Login /> */}
-			<Register />
+			<Login />
+			{/* <Register /> */}
 		</>
 	);
 };

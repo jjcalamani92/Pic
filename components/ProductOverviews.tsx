@@ -1057,27 +1057,9 @@ export const ProductOverviews03: FC<Props> = ({ product }) => {
 				</ol>
 			</nav>
 
-			<div className="md:flex items-start justify-center py-6 2xl:px-20 md:px-6 px-4">
-				<div className="w-auto flex flex-col sm:px-6 gap-1 sm:gap-2 md:gap-3">
-					{/* <SwiperDetail image={product.image} /> */}
-					<SwiperComponent image={product.image} />
-					<img
-						className="w-full"
-						alt="img of a girl posing"
-						src={product.image[0]}
-					/>
-					<div className="grid grid-cols-4 gap-1 sm:gap-2 md:gap-3">
-						{product.image.map((date, i) => (
-							<div className=" shadow-md p-1 border">
-								<img
-									alt="img-tag-one"
-									className="md:w-48 md:h-48 w-full "
-									src={date}
-								/>
-							</div>
-						))}
-					</div>
-				</div>
+			<div className="container md:flex items-start justify-center py-6 2xl:px-20 md:px-6 px-4">
+				<SwiperComponent image={product.image} />
+
 				<div className="xl:w-2/5 md:w-1/2 lg:ml-8 sm:px-6 md:ml-6 md:mt-0 mt-6">
 					<div className="border-b border-gray-200 pb-6">
 						{/* <p className="text-sm leading-none text-gray-600">{product.brand}</p> */}

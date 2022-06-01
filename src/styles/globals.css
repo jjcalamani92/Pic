@@ -2,12 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
-.swiper-container {
-	width: 100% !important;
-}
+/* .swiper-container {
+	width: 100%;
+} */
 
 .swiper {
-	width: 100%;
+	width: auto;
 	height: 100%;
 }
 
@@ -32,8 +32,8 @@
 }
 
 .swiper-slide img {
-	/* display: block; */
-	width: 100%;
+	display: block;
+	width: auto;
 	height: 100%;
 	object-fit: cover;
 }
@@ -43,11 +43,11 @@
 	margin-right: auto;
 } */
 .swiper-button-prev {
-	left: 30;
+	/* left: 30; */
 	color: red !important;
 }
 .swiper-button-next {
-	left: 30;
+	/* left: 30; */
 	color: red !important;
 }
 .swiper-pagination-bullet {
