@@ -11,6 +11,10 @@ import { AuthContext, authReducer } from ".";
 import { IUser } from "../../interfaces";
 import storeApi from "../../storeApi";
 
+interface Props {
+	children: any;
+}
+
 export interface AuthState {
 	isLoggedIn: boolean;
 	user?: IUser;
@@ -21,7 +25,7 @@ const AUTH_INITIAL_STATE: AuthState = {
 	user: undefined
 };
 
-export const AuthProvider: FC = ({ children }) => {
+export const AuthProvider: FC<Props> = ({ children }) => {
 	const [state, dispatch] = useReducer(authReducer, AUTH_INITIAL_STATE);
 	const { data, status } = useSession();
 	const router = useRouter();
@@ -88,7 +92,7 @@ export const AuthProvider: FC = ({ children }) => {
 			if (axios.isAxiosError(error)) {
 				return {
 					hasError: true,
-					message: error.response?.data.message
+					message: "error.response?.data.message"
 				};
 			}
 
